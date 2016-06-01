@@ -1,0 +1,18 @@
+#ourProducts {
+  .ourProducts-wrapper {
+    .op-header {
+      font-size: 1rem;
+      text-align: center;
+      background-color: #ecf0f1;
+      h1, h2 {
+        font-family: $secondary-font-family;
+        font-weight: bold;
+        font-size: 5em;
+        margin: 0;
+        padding: 30px 0 30px 0;
+      }
+      h1 {padding-top: 50px;}
+      h2 {font-size: 3.5em;}
+    }
+  }
+}

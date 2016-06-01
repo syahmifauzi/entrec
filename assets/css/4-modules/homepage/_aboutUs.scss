@@ -1,0 +1,18 @@
+#aboutUs {
+  color: #fff;
+  .aboutUs-wrapper {
+    .inner-wrapper {
+      &:first-child {background-color: #87509c;}
+      &:nth-child(2) {background-color: #f26565;}
+      &:last-child {background-color: #0eae6c;}
+      
+      .aboutUs-wrapper-first {
+        text-align: center;
+      }
+      .aboutUs-wrapper-second {
+        text-align: left;
+        text-indent: 30px;
+      }
+    }
+  }
+}

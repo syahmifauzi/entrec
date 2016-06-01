@@ -1,0 +1,51 @@
+// navHeight & navHeight2 for replace when nav active-state
+$navHeight: 58px;
+$navHeight2: 106px;
+#entrec-header {
+  .header-wrapper {
+    display: flex;
+    flex-direction: row;
+    height: 85vh;
+    max-height: 700px;
+    justify-content: center;
+    align-items: center;
+    @media all and (max-width: $small-breakpoint-width)
+      {flex-direction: column; height: 100%; margin: 10px 0;}
+    @media all and (max-height: $small-breakpoint-height)
+      {align-items: center; height: 100%; margin: 10px 0;}
+    @media all and (max-width: $small-breakpoint-width) and (max-height: $small-breakpoint-height)
+      {align-items: center;}
+    .header-wrapper-left {
+      .entrec-logo {}
+    }
+    .header-wrapper-right {
+      .wrapper-desc-socmed {
+        display: flex;
+        flex-direction: row;
+        @media all and (max-width: $small-breakpoint-width) {
+          flex-direction: column-reverse;
+          align-items: center;
+        }
+        .header-description {
+          p {
+            display: flex;
+            flex-direction: column;
+          }
+        }
+        .social-medias {
+          ul li { display: inline-block; }
+        }
+      }
+      .header-title {}
+      .outer-nav {
+        min-height: $navHeight;
+        @media all and (max-width: $x-small-breakpoint-width)
+          {min-height: $navHeight2;}
+        .header-navigation#site-nav {
+          ul li { display: inline-block; }
+        }
+      }
+    }
+    .down-arrow {}
+  }
+}

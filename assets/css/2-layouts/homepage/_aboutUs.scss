@@ -1,0 +1,47 @@
+#aboutUs {
+  .aboutUs-wrapper {
+    .inner-wrapper {
+      min-height: 385px;
+      position: relative;
+      @media all and (max-width: $small-breakpoint-width)
+        {min-height: 405px;}
+      .aboutUs-inner-1,
+      .aboutUs-inner-2,
+      .aboutUs-inner-3 {
+        @media all and (max-width: $small-breakpoint-width) {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+    .aboutUs-wrapper-first {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      &:nth-child(2) {
+        left: auto;
+        right: 0;
+      }
+      @media all and (max-width: $small-breakpoint-width) {
+        position: static;
+        transform: translateY(0);
+        order: 1;
+      }
+    }
+    .aboutUs-wrapper-second {
+      @extend .aboutUs-wrapper-first;
+      left: auto;
+      right: 0;
+      &:nth-child(1) {
+        left: 0;
+        right: auto;
+      }
+      @media all and (max-width: $small-breakpoint-width)
+        {order: 2;}
+    }
+  }
+}
