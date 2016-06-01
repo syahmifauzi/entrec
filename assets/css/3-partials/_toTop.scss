@@ -6,7 +6,7 @@ a#toTop {
   height: 40px;
   z-index: 100;
   border-radius: 100%;
-  @include logoBg("/assets/img/toTop.svg");
+  @include logoBg("../../assets/img/toTop.svg");
   background-color: rgba(0, 0, 0, 0.2);
   box-shadow: 1px 1px 7px 1px #333;
   &:hover {
