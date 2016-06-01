@@ -6,7 +6,7 @@
     @include mediaSmallWidth(1rem);
     .entrec-logo {
       @include hideText;
-      @include logoBg("/assets/img/entrec-logo.png");
+      @include logoBg("../../assets/img/entrec-logo.png");
       height: 12em;
       width: 10em;
     }
@@ -33,9 +33,9 @@
           width: 30px;
           @include hideText;
         }
-        &.fb a {@include logoBg("/assets/img/fb-logo.svg");}
-        &.tt a {@include logoBg("/assets/img/tt-logo.svg");}
-        &.ig a {@include logoBg("/assets/img/ig-logo.svg");}
+        &.fb a {@include logoBg("../../assets/img/fb-logo.svg");}
+        &.tt a {@include logoBg("../../assets/img/tt-logo.svg");}
+        &.ig a {@include logoBg("../../assets/img/ig-logo.svg");}
         &:hover {transform: scale(1.3);}
       }
     }
