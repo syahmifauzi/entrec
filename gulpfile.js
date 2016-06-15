@@ -1,46 +1,57 @@
 var gulp          = require('gulp'),
-    jade          = require('gulp-jade'),
-    sass          = require('gulp-sass'),
     shell         = require('gulp-shell'),
-    sitemap       = require('gulp-sitemap'),
+    jade          = require('gulp-jade'),
+
+    sass          = require('gulp-sass'),
     uncss         = require('gulp-uncss'),
-    minifyCss     = require('gulp-minify-css'),
+    nano          = require('gulp-cssnano'),
     autoprefixer  = require('gulp-autoprefixer'),
+
+    uglify        = require('gulp-uglify'),
+    concat        = require('gulp-concat'),
+    // rename        = require('gulp-rename'),
+    runSequence   = require('run-sequence'),
     browserSync   = require('browser-sync').create();
 
 
-gulp.task('default', ['browserSync', 'watch']);
+gulp.task('default', function(callback) {
+  runSequence(
+    'browserSync',
+    ['jade', 'sass', 'sass:vendors', 'js', 'js:vendors', 'copy'],
+    callback
+  );
+});
 
 
+// Run jekyll command in console..
+gulp.task('jekyll-build', shell.task(['jekyll build']));
+
+
+// Rebuild jekyll..
 gulp.task('jekyll-rebuild', ['jekyll-build'], function() {
   browserSync.reload();
 });
 
 
-// Task for building blog when something changed:
-gulp.task('jekyll-build', shell.task(['jekyll build']));
-
-
-// Task for serving blog with BrowserSync..
-gulp.task('browserSync', ['sitemap'], function() {
+// Static Server + Watching Files..
+gulp.task('browserSync', ['jekyll-build'], function() {
   browserSync.init({
     server: {
       baseDir: '_site/'
     }
   });
+  gulp.watch(['*.html', '_includes/**/*.html', '_layouts/*.html', '_posts/*.*', 'blog/*.html'], ['jekyll-rebuild']);
+  gulp.watch(['_jadefiles/**/*.jade'], ['jade']);
+  gulp.watch(['assets/css/**/*.scss', '!assets/css/vendors.scss','!assets/css/0-vendors/**/*.scss'], ['sass']);
+  gulp.watch(['assets/css/vendors.scss', 'assets/css/0-vendors/**/*.scss'], ['sass:vendors']);
+  gulp.watch(['assets/js/app.js'], ['js']);
+  gulp.watch(['assets/js/vendors/**/*.js'], ['js:vendors']);
+  gulp.watch(['assets/img/**/*'], ['copy']);
 });
 
 
-// Creating Sitemap -> must build jekyll first
-gulp.task('sitemap', ['jekyll-build'], function() {
-  gulp.src('_site/**/*.html')
-    .pipe(sitemap({siteUrl: 'http://www.syahmifauzi.com'}))
-    .pipe(gulp.dest('./'));
-});
-
-
-// Jade.. SASS.. Img.. Fonts.. JS..
-// ------------------------------------------------------
+// Jade.. SASS(and Vendors).. JS(and Vendors).. Static Files..
+// -----------------------------------------------------------
 gulp.task('jade', function() {
   return gulp.src('_jadefiles/**/*.jade')
     .pipe(jade({ pretty: true }))
@@ -50,7 +61,7 @@ gulp.task('jade', function() {
 });
 
 gulp.task('sass', function() {
-  return gulp.src('assets/css/**/*.scss')
+  return gulp.src('assets/css/app.scss')
     .pipe(sass({
       outputStyle: 'compressed',
       onError: browserSync.notify
@@ -61,62 +72,65 @@ gulp.task('sass', function() {
       browser: ['last 2 versions', '> i%', 'not ie <= 8'],
       cascade: true
     }))
+    .pipe(nano())
     .pipe(gulp.dest('_site/assets/css'))
     .pipe(browserSync.reload({ stream: true }))
     .pipe(gulp.dest('assets/css'));
 });
 
-gulp.task('img', function() {
-  return gulp.src('assets/img/**/*')
-    .pipe(gulp.dest('_site/assets/img'))
-    .pipe(browserSync.reload({ stream: true }));
-});
-
-gulp.task('fonts', function() {
-  return gulp.src('assets/fonts/**/*')
-    .pipe(gulp.dest('_site/assets/fonts'))
-    .pipe(browserSync.reload({ stream: true }));
+gulp.task('sass:vendors', function() {
+  return gulp.src('assets/css/vendors.scss')
+    .pipe(sass({
+      outputStyle: 'compressed',
+      onError: browserSync.notify
+    }))
+      // Run errorHandler if have error
+      .on('error', errorHandler)
+    .pipe(autoprefixer({
+      browser: ['last 2 versions', '> i%', 'not ie <= 8'],
+      cascade: true
+    }))
+    .pipe(uncss({
+      html: ['index.html', '_includes/**/*.html', '_layouts/**/*.html', '_posts/**/*.html']
+    }))
+    .pipe(nano())
+    .pipe(gulp.dest('_site/assets/css'))
+    .pipe(browserSync.reload({ stream: true }))
+    .pipe(gulp.dest('assets/css'));
 });
 
 gulp.task('js', function() {
-  return gulp.src(['assets/js/**/*.js', '!assets/js/vendor/*.js'])
+  return gulp.src('assets/js/app.js')
+    // .pipe(uglify())
+    .pipe(gulp.dest('_site/assets/js'))
+    .pipe(browserSync.reload({ stream: true }));
+});
+
+gulp.task('js:vendors', function() {
+  return gulp.src(['!assets/js/app.js', 'assets/js/vendors/**/*.js'])
+    .pipe(concat('vendors.js'))
+    .pipe(uglify())
     .pipe(gulp.dest('_site/assets/js'))
     .pipe(browserSync.reload({ stream: true }))
     .pipe(gulp.dest('assets/js'));
 });
-// ------------------------------------------------------
 
-
-// For Production
-// ------------------------------------------------------
-gulp.task('production', function() {
-  return gulp.src('assets/css/foundation.css')
-    .pipe(uncss({
-      html: ['index.html', '_includes/**/*.html', '_layouts/**/*.html', '_posts/**/*.html']
-    }))
-    .pipe(minifyCss())
-    .pipe(gulp.dest('_site/assets/css'))
+// Copy specific n statics files only..
+gulp.task('copy', function() {
+  gulp.src('assets/img/**/*.*')
+    .pipe(gulp.dest('_site/assets/img'))
     .pipe(browserSync.reload({ stream: true }));
 });
-// ------------------------------------------------------
+// -----------------------------------------------------------
 
-
-gulp.task('watch', ['sass', 'js'], function() {
-  gulp.watch(['*.html', '_includes/**/*.html', '_layouts/*.html', '_posts/*.*', 'blog/*.html'], ['jekyll-rebuild']);
-  gulp.watch(['assets/css/**/*.scss'], ['sass']);
-  gulp.watch(['_jadefiles/**/*.jade'], ['jade']);
-  gulp.watch(['assets/img/**/*'], ['img']);
-  gulp.watch(['assets/fonts/**/*'], ['fonts']);
-  gulp.watch(['assets/js/**/*.js'], ['js']);
-});
 
 
 // Prevent gulp watch from break..
-// ------------------------------------------------------
+// -----------------------------------------------------------
 function errorHandler(error) {
     // Logs out error in the command line
   console.log(error.toString());
     // Ends the current pipe, so Gulp watch doesn't break
   this.emit('end');
 }
-// ------------------------------------------------------
+// -----------------------------------------------------------

@@ -7,9 +7,7 @@
 
     {{ content }}
 
-    <script src="assets/js/vendor/jquery.js"></script>
-    <script src="assets/js/vendor/what-input.js"></script>
-    <script src="assets/js/vendor/foundation.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="{{ "/assets/js/vendors.js" | prepend: site.baseurl | prepend: site.url }}"></script>
+    <script src="{{ "/assets/js/app.js" | prepend: site.baseurl | prepend: site.url }}"></script>
   </body>
 </html>

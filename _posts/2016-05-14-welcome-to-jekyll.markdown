@@ -2,7 +2,7 @@
 layout: default
 title:  "Welcome to Jekyll!"
 date:   2016-05-14 17:31:10 +0800
-categories: jekyll update
+categories: posts
 ---
 
 Use ctrl+shift+m to preview   
