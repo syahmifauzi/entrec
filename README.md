@@ -16,3 +16,6 @@ Build files in 'assets/' :-
 2. Font Family backup
 3. Header - IE Fix (currently using flex box)
 4. Header - Fix media query for min-height
+5. Products click open catalog
+6. Remove unuse scss partials
+7. Blog
