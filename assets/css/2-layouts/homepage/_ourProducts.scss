@@ -1,7 +1,42 @@
 #ourProducts {
   .ourProducts-wrapper {
-    .op-header {
-
+    .catalog-wrapper {
+      clear: both;
+    }
+    .catalog-wrapper-30 {
+      clear: both;
+      // text-align: center;
+      .img-wrapper {
+        width: 33.3333%;
+        height: auto;
+        float: left;
+        overflow: hidden;
+        &:last-child {
+          // float: none; display: inline-block; margin-bottom: -6px;
+        }
+        @media all and (max-width: $small-breakpoint-width) {
+          width: 100%;
+        }
+        @media all and (max-width: $x-small-breakpoint-width) {
+          width: 100%;
+        }
+        img {
+          position: relative;
+          z-index: 1;
+        }
+        .description {
+          position: relative;
+          z-index: 2;
+        }
+      }
+    }
+    .catalog-wrapper-50 {
+      @extend .catalog-wrapper-30;
+      .img-wrapper {
+        width: 50%;
+        @media all and (max-width: $small-breakpoint-width)
+          {width: 100%;}
+      }
     }
   }
 }

@@ -7,4 +7,6 @@ Build files in 'assets/' :-
 - 'css/vendors.css'
 - 'js/vendors.js'
 
-// _do not edit in this files.._
+// _do not edit in this files.._   
+
+// Run sass after build jade or html files..

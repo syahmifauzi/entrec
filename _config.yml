@@ -4,10 +4,11 @@ email: msf@syahmifauzi.com
 description: > # Multiline description..
   Site description goes here..
 
+# Uncomment 'baseurl' and 'url' when deploy..
 baseurl: "/entrec"
 url: "http://www.syahmifauzi.com"
 
-twitter_username: _syahmifauzi
+twitter_username: twitter.entrec
 facebook_username:  entrec.iium
 instagram_username: entrec.club
 

@@ -1,0 +1,15 @@
+img-30:
+  - title: Moist Cake
+    url: /assets/img/moistCake.jpg
+    price: RM50
+    description: Description goes here..
+
+  - title: Kuih Rata
+    url: /assets/img/kuih.jpg
+    price: RM50
+    description: Description goes here..
+
+  - title: Moist Cake
+    url: /assets/img/moistCake.jpg
+    price: RM50
+    description: Description goes here..

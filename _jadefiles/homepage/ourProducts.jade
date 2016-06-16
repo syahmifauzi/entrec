@@ -1,9 +1,38 @@
+mixin img(data, width)
+  - var productData = data;
+  - var imgWidth    = width;
+  div(class="catalog-wrapper-#{imgWidth}")
+    | {% for img in site.data.products.#{productData}.img-#{imgWidth} %}
+    .img-wrapper
+      img(data-original="{{ img.url }}", alt="{{ img.title }}").product-img
+      noscript
+        img(src="{{ img.url }}", alt="{{ img.title }}", width="100%", height="auto")
+      .description
+        h3 {{ img.title }}
+        p
+          | {{ img.price }}
+          br
+          | {{ img.description }}
+    | {% endfor %}
+
+
 .row.section-wrap#ourProducts
   .ourProducts-wrapper
-    .op-header
-      h1 Our Products
+    h1 Our Products
+    
+    .catalog-wrapper
       h2 Clothes..
-    .op-header
+      +img("baju", 30)
+      +img("baju", 50)
+        
+    .catalog-wrapper
       h2 Foods..
-    .op-header
+      +img("makanan", 30)
+      +img("makanan", 50)
+      
+    .catalog-wrapper
       h2 Others..
+      +img("lain2", 30)
+      +img("lain2", 50)
+      
+      
