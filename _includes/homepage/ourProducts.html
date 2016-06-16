@@ -2,14 +2,13 @@
 <div id="ourProducts" class="row section-wrap">
   <div class="ourProducts-wrapper">
     <h1>Our Products</h1>
-    <div class="catalog-wrapper">
+    <div id="clothes" class="catalog-wrapper">
       <h2>Clothes..</h2>
       <div class="catalog-wrapper-30">{% for img in site.data.products.baju.img-30 %}
         <div class="img-wrapper"><img data-original="{{ img.url }}" alt="{{ img.title }}" class="product-img"/>
           <noscript><img src="{{ img.url }}" alt="{{ img.title }}" width="100%" height="auto"/></noscript>
           <div class="description">
-            <h3>{{ img.title }}</h3>
-            <p>{{ img.price }}<br/>{{ img.description }}</p>
+            <p> <span class="title">{{ img.title }}</span><br/>{{ img.price }}<br/>{{ img.description }}</p>
           </div>
         </div>{% endfor %}
       </div>
@@ -17,20 +16,18 @@
         <div class="img-wrapper"><img data-original="{{ img.url }}" alt="{{ img.title }}" class="product-img"/>
           <noscript><img src="{{ img.url }}" alt="{{ img.title }}" width="100%" height="auto"/></noscript>
           <div class="description">
-            <h3>{{ img.title }}</h3>
-            <p>{{ img.price }}<br/>{{ img.description }}</p>
+            <p> <span class="title">{{ img.title }}</span><br/>{{ img.price }}<br/>{{ img.description }}</p>
           </div>
         </div>{% endfor %}
       </div>
     </div>
-    <div class="catalog-wrapper">
+    <div id="foods" class="catalog-wrapper">
       <h2>Foods..</h2>
       <div class="catalog-wrapper-30">{% for img in site.data.products.makanan.img-30 %}
         <div class="img-wrapper"><img data-original="{{ img.url }}" alt="{{ img.title }}" class="product-img"/>
           <noscript><img src="{{ img.url }}" alt="{{ img.title }}" width="100%" height="auto"/></noscript>
           <div class="description">
-            <h3>{{ img.title }}</h3>
-            <p>{{ img.price }}<br/>{{ img.description }}</p>
+            <p> <span class="title">{{ img.title }}</span><br/>{{ img.price }}<br/>{{ img.description }}</p>
           </div>
         </div>{% endfor %}
       </div>
@@ -38,20 +35,18 @@
         <div class="img-wrapper"><img data-original="{{ img.url }}" alt="{{ img.title }}" class="product-img"/>
           <noscript><img src="{{ img.url }}" alt="{{ img.title }}" width="100%" height="auto"/></noscript>
           <div class="description">
-            <h3>{{ img.title }}</h3>
-            <p>{{ img.price }}<br/>{{ img.description }}</p>
+            <p> <span class="title">{{ img.title }}</span><br/>{{ img.price }}<br/>{{ img.description }}</p>
           </div>
         </div>{% endfor %}
       </div>
     </div>
-    <div class="catalog-wrapper">
+    <div id="others" class="catalog-wrapper">
       <h2>Others..</h2>
       <div class="catalog-wrapper-30">{% for img in site.data.products.lain2.img-30 %}
         <div class="img-wrapper"><img data-original="{{ img.url }}" alt="{{ img.title }}" class="product-img"/>
           <noscript><img src="{{ img.url }}" alt="{{ img.title }}" width="100%" height="auto"/></noscript>
           <div class="description">
-            <h3>{{ img.title }}</h3>
-            <p>{{ img.price }}<br/>{{ img.description }}</p>
+            <p> <span class="title">{{ img.title }}</span><br/>{{ img.price }}<br/>{{ img.description }}</p>
           </div>
         </div>{% endfor %}
       </div>
@@ -59,8 +54,7 @@
         <div class="img-wrapper"><img data-original="{{ img.url }}" alt="{{ img.title }}" class="product-img"/>
           <noscript><img src="{{ img.url }}" alt="{{ img.title }}" width="100%" height="auto"/></noscript>
           <div class="description">
-            <h3>{{ img.title }}</h3>
-            <p>{{ img.price }}<br/>{{ img.description }}</p>
+            <p> <span class="title">{{ img.title }}</span><br/>{{ img.price }}<br/>{{ img.description }}</p>
           </div>
         </div>{% endfor %}
       </div>

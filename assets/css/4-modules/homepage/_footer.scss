@@ -1,0 +1,59 @@
+$footer-link-color: #33eeff;
+
+#footer {
+  background-color: #34495e;
+  .footer-wrapper {
+    color: #ddd;
+    text-align: center;
+    .columns {
+      padding: 0px 10px;
+      hr {
+      	border-top: 2px dotted #999;
+        border-bottom: 0px;
+      }
+    }
+    .quick-link {
+      text-align: left;
+      width: 150px;
+      margin: 0 auto;
+      li {
+        list-style: none;
+        a {color: $footer-link-color;}
+      }
+    }
+    .contact-info {
+      a {color: $footer-link-color;}
+    }
+    .social-medias {
+      ul {
+        margin: 10px 0;
+      }
+      li {
+        list-style: none;
+        display: inline-block;
+        margin-right: 0.6em;
+        transition: all 125ms ease-in-out;
+        a {
+          display: block;
+          height: 30px;
+          width: 30px;
+          @include hideText;
+        }
+        &:last-child {margin-right: 0;}
+        a {color: $footer-link-color;}
+        &.fb a {@include logoBg("../../assets/img/fb-logo.svg");}
+        &.tt a {@include logoBg("../../assets/img/tt-logo.svg");}
+        &.ig a {@include logoBg("../../assets/img/ig-logo.svg");}
+        &:hover {transform: scale(1.3);}
+      }
+    }
+    .dev {
+      span:first-child {color: #ff44d6;}
+      span:last-child {display: block;}
+      a {color: $footer-link-color;}
+    }
+    .copy {
+      margin-bottom: 30px;
+    }
+  }
+}

@@ -40,7 +40,7 @@ gulp.task('browserSync', ['jekyll-build'], function() {
       baseDir: '_site/'
     }
   });
-  gulp.watch(['_config.yml', '_data/**/*.yml'], ['jekyll-rebuild']);
+  gulp.watch(['_config.yml', '_data/**/*.yml', 'README.md'], ['jekyll-rebuild']);
   gulp.watch(['*.html', '_includes/**/*.html', '_layouts/*.html', '_posts/*.*', 'blog/*.html'], ['jekyll-rebuild']);
   gulp.watch(['_jadefiles/**/*.jade'], ['jade']);
   gulp.watch(['assets/css/**/*.scss', '!assets/css/vendors.scss','!assets/css/0-vendors/**/*.scss'], ['sass']);

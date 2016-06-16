@@ -12,10 +12,11 @@ $description-height-hover: 100px;
       font-weight: bold;
       font-size: 5em;
       margin: 0;
-      padding: 30px 0 30px 0;
+      padding: 30px 0;
     }
-    h1 {padding-top: 50px;}
+    h1 {margin-top: 50px;}
     h2 {font-size: 3.5em;}
+    .catalog-wrapper h2 {padding: 40px 0;}
     .catalog-wrapper {
       .img-wrapper {
         transition: all 225ms ease-in-out;
@@ -48,15 +49,16 @@ $description-height-hover: 100px;
         }
         .description {
           color: #222;
-          background-color: rgba(255, 255, 255, 0.7);
+          background-color: rgba(255, 255, 255, 0.75);
           padding: 10px;
           height: $description-height;
           margin-top: -$description-height; // negative margin
           margin-bottom: 0;
           transition: all 225ms ease-in-out;
-          h3 {
-            margin: 0;
-            margin-top: -3px;
+          span.title {
+            letter-spacing: 2px;
+            font-size: 1.1em;
+            font-weight: bold;
           }
         }
       }

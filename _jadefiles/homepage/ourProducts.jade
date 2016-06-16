@@ -8,8 +8,9 @@ mixin img(data, width)
       noscript
         img(src="{{ img.url }}", alt="{{ img.title }}", width="100%", height="auto")
       .description
-        h3 {{ img.title }}
-        p
+        p 
+          span.title {{ img.title }}
+          br
           | {{ img.price }}
           br
           | {{ img.description }}
@@ -20,17 +21,17 @@ mixin img(data, width)
   .ourProducts-wrapper
     h1 Our Products
     
-    .catalog-wrapper
+    .catalog-wrapper#clothes
       h2 Clothes..
       +img("baju", 30)
       +img("baju", 50)
         
-    .catalog-wrapper
+    .catalog-wrapper#foods
       h2 Foods..
       +img("makanan", 30)
       +img("makanan", 50)
       
-    .catalog-wrapper
+    .catalog-wrapper#others
       h2 Others..
       +img("lain2", 30)
       +img("lain2", 50)
