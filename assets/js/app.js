@@ -43,7 +43,7 @@ $(document).ready(function() {
   // LazyloadJS
   $('img.product-img').show().lazyload({
     effect: "fadeIn",
-    effectspeed: 600
+    // effectspeed: 600
   });
 
 });
