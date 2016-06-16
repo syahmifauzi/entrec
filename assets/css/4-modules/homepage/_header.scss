@@ -1,5 +1,8 @@
 #entrec-header {
   background-color: #fff;
+  .header-wrapper {
+    padding-top: 10px;
+  }
   .header-wrapper-left {
     font-size: 2rem;
     @include mediaMediumWidth(1.5rem);
@@ -23,6 +26,7 @@
       }
     }
     .social-medias {
+      ul {margin-left: 0;}
       ul li {
         margin-right: 0.6em;
         transition: all 125ms ease-in-out;

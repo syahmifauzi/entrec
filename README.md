@@ -19,3 +19,4 @@ Build files in 'assets/' :-
 5. Products click open catalog   
 6. Remove unuse scss partials   
 7. Blog   
+8. Fix toTop --'
