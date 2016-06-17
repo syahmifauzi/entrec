@@ -20,8 +20,10 @@
           br
           | SMS @ WhatsApp
           br
-          | Bro Syahmi : 
-          a(href="tel:0133885165") 013 388 5165
+          | {% for contact in site.data.homepage.contact %}
+          | {{ contact.name }} : 
+          a(href="tel:{{ contact.number }}") {{ contact.number }}
+          | {% endfor %}
   
     .columns.medium-4
       hr

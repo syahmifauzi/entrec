@@ -19,7 +19,9 @@
     <div class="columns medium-4">
       <hr/>
       <div class="contact-info">
-        <p>Contact Us :<br/>SMS @ WhatsApp<br/>Bro Syahmi : <a href="tel:0133885165">013 388 5165</a></p>
+        <p>Contact Us :<br/>SMS @ WhatsApp<br/>{% for contact in site.data.homepage.contact %}
+          {{ contact.name }} : <a href="tel:{{ contact.number }}">{{ contact.number }}</a>{% endfor %}
+        </p>
       </div>
     </div>
     <div class="columns medium-4">

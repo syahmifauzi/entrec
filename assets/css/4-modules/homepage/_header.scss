@@ -81,7 +81,7 @@
               display: block;
               width: 100%;
             }
-            &:hover a {color: $link-color-hover;}
+            &:hover a {color: $nav-link-color-hover;}
             &:first-child {
               border-color: #7f8585;
               &:hover {
@@ -101,7 +101,7 @@
                 background-color: #40d47e;
               }
             }
-            a {color: $link-color-unhover;}
+            a {color: $nav-link-color-unhover;}
             @media all and (max-width: $small-breakpoint-width)
               {margin: 10px 0 0 0;}
           }
@@ -125,12 +125,13 @@
           li {
             // margin: 0;
             // border: 0;
-            &:hover a {color: $link-color-hover;}
+            &:hover a {color: $nav-link-color-hover;}
             a {
               color: #ccc;
               padding: 10px 10px;
               display: block;
               width: 100%;
+              transition: all 125ms ease-in-out;
               &:active {color: #fff;}
               &.active {color: #fff;}
             }

@@ -1,11 +1,17 @@
 #aboutUs {
   color: #fff;
   .aboutUs-wrapper {
+    font-size: 1rem;
     .inner-wrapper {
+      h1 {
+        font-family: $secondary-font-family;
+        font-size: 3.3em;
+      }
+      p {font-family: $primary-font-color;}
       &:first-child {background-color: #87509c;}
       &:nth-child(2) {background-color: #f26565;}
       &:last-child {background-color: #0eae6c;}
-      
+
       .aboutUs-wrapper-first {
         text-align: center;
       }

@@ -4,11 +4,13 @@
     .contact-info
       p
         | To order,
-        span Please contact 
+        span Please contact :
+        | {% for contact in site.data.homepage.contact %} 
         span
-          | Bro Syahmi : 
-          a(href="tel:0133885165") 013 388 5165 
+          | {{ contact.name }} : 
+          a(href="tel:{{ contact.number }}") {{ contact.number }} 
           | (SMS @ WhatsApp)
+        | {% endfor %}
         br
         span And he will direct you...
           
