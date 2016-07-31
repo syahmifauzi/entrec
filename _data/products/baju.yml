@@ -1,27 +1,27 @@
 img-30:
   - title: Jubah Muslimah
-    url: /assets/img/jubah-F.jpg
+    url: assets/img/jubah-F.jpg
     price: RM50
     description: Description goes here..
 
   - title: Jubah Muslim
-    url: /assets/img/jubahM.jpg
+    url: assets/img/jubahM.jpg
     price: RM50
     description: Description goes here..
 
   - title: Labcoat
-    url: /assets/img/labCoat.jpg
+    url: assets/img/labCoat.jpg
     price: RM50
     description: Description goes here..
 
 
 img-50:
   - title: Jersey Muslim
-    url: /assets/img/jersey-M.jpg
+    url: assets/img/jersey-M.jpg
     price: RM50
     description: Description goes here..
 
   - title: Jersey Muslimah
-    url: /assets/img/jersey-F.jpg
+    url: assets/img/jersey-F.jpg
     price: RM50
     description: Description goes here..

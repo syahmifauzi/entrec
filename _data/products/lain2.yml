@@ -1,15 +1,15 @@
 img-30:
   - title: Handmade Tote Bag
-    url: /assets/img/toteBag.jpg
+    url: assets/img/toteBag.jpg
     price: RM50
     description: Description goes here..
 
   - title: Handmade Pencil Case
-    url: /assets/img/pencilCase.jpg
+    url: assets/img/pencilCase.jpg
     price: RM50
     description: Description goes here..
 
   - title: Handmade Tote Bag
-    url: /assets/img/toteBag.jpg
+    url: assets/img/toteBag.jpg
     price: RM50
     description: Description goes here..
