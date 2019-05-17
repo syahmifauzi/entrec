@@ -6,7 +6,7 @@ description: > # Multiline description..
 
 # Uncomment 'baseurl' and 'url' when deploy..
 baseurl: "/entrec"
-url: "http://www.syahmifauzi.com"
+url: "https://www.syahmifauzi.com"
 
 twitter_username: twitter.entrec
 facebook_username:  entrec.iium
